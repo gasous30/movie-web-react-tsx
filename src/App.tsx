@@ -39,7 +39,7 @@ const testprops = {
 const App = () => {
   return (
     <div>
-      <Movie testprops={testprops}></Movie>
+      <Movie props={testprops}></Movie>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Movie = (props: any) => {
+const Movie = ({ props }: { props: any }) => {
   console.log(props);
   return (
     <div>
