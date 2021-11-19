@@ -4,6 +4,7 @@ import styles from "./List.module.scss";
 import MovieTile from "../MovieTile/MovieTile";
 import axios from "axios";
 
+let y: any = [];
 let topRatedMoviesID = [
   "tt0111161",
   "tt0068646",
@@ -17,30 +18,32 @@ let topRatedMoviesID = [
   "tt0120737",
 ];
 
+topRatedMoviesID.map((e) => {
+  fetch(`http://www.omdbapi.com/?apikey=1bee8ffd&i=${e}`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => y.push(res));
+});
+
 const List: FC = () => {
-  const [listMovie, setListMovie] = useState<any>([]);
+  const [isLoad, setIsLoad] = useState(false);
+  const [listMovie, setListMovie] = useState<any>([y]);
 
-  useEffect(() => {
-    topRatedMoviesID.map((movie) => {
-      axios
-        .get(`http://www.omdbapi.com/?apikey=1bee8ffd&i=${movie}`)
-        .then((response) => {
-          let x = response.data;
-          setListMovie(...listMovie, x);
-          listMovie.push(x);
-          console.log(listMovie);
-        })
-        .catch((err) => console.log(err));
-    });
-  }, [listMovie]);
+  // const getMovieById = (id: string) => {
+  //   fetch(`http://www.omdbapi.com/?apikey=1bee8ffd&i=${id}`)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((result) => {
+  //       console.log(result);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
-  return (
-    <div className={styles.List}>
-      {listMovie.map((movie: any) => {
-        return <h1>brader</h1>;
-      })}
-    </div>
-  );
+  return <div className={styles.List}>{listMovie.length}</div>;
 };
 
 export default List;
