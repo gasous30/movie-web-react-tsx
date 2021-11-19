@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./MovieTile.module.scss";
 
 const MovieTile = ({ props }: { props: any }) => {
+  const [wishlist, setWishlist] = useState<any>([]);
+  const [clicked, setClicked] = useState<any>(true);
   const addWishlist = (event: any) => {
     event.preventDefault();
-    console.log(event.target.id);
+    setClicked(!clicked);
+    if (clicked) {
+      (
+        document.getElementById(event.target.id) as ElementCSSInlineStyle
+      ).style.background = "yellow";
+      wishlist.push(event.target.id);
+    } else {
+      (
+        document.getElementById(event.target.id) as ElementCSSInlineStyle
+      ).style.background = "rgb(211, 169, 153)";
+    }
   };
 
   return (

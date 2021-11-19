@@ -21,11 +21,6 @@ const Navbar: FC = () => {
         </svg>
         <input type="text" placeholder="Search..." id="searchname" />
       </form>
-      <div className={styles.TextContainer}>
-        <a>Home</a>
-        <a>Wishlist</a>
-        <a>About</a>
-      </div>
     </div>
   );
 };

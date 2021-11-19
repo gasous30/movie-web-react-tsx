@@ -8,7 +8,7 @@
   align-items: center;
   text-align: center;
   font-size: 1.2rem;
-  padding-left: 2em;
+  padding-left: 1em;
 
   & .Logo {
     width: 10%;
@@ -35,16 +35,6 @@
       width: 80%;
       border: none;
       border-radius: 5px;
-    }
-  }
-
-  & .TextContainer {
-    display: flex;
-    width: 15%;
-    justify-content: right;
-
-    & a {
-      margin: 0 1em;
     }
   }
 }

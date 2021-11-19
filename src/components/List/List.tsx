@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FC } from "react";
 import styles from "./List.module.scss";
 import MovieTile from "../MovieTile/MovieTile";
-import axios from "axios";
 
-let y: any = [];
 let topRatedMoviesID = [
   "tt0111161",
   "tt0068646",
@@ -18,32 +16,37 @@ let topRatedMoviesID = [
   "tt0120737",
 ];
 
-topRatedMoviesID.map((e) => {
-  fetch(`http://www.omdbapi.com/?apikey=1bee8ffd&i=${e}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => y.push(res));
-});
-
 const List: FC = () => {
   const [isLoad, setIsLoad] = useState(false);
-  const [listMovie, setListMovie] = useState<any>([y]);
+  const [listMovie, setListMovie] = useState<any>([]);
+  const [wishlist, setWishlist] = useState<any>([]);
 
-  // const getMovieById = (id: string) => {
-  //   fetch(`http://www.omdbapi.com/?apikey=1bee8ffd&i=${id}`)
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((result) => {
-  //       console.log(result);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const getMovieById = async () => {
+    const list = await topRatedMoviesID.map(async (id) => {
+      const res = await fetch(
+        `http://www.omdbapi.com/?apikey=1bee8ffd&i=${id}`
+      );
+      const movie = await res.json();
+      return movie;
+    });
+    Promise.all(list).then((values) => {
+      values.map((value) => {
+        listMovie.push(value);
+      });
+      setIsLoad(true);
+    });
+    return list;
+  };
 
-  return <div className={styles.List}>{listMovie.length}</div>;
+  getMovieById();
+
+  return (
+    <div className={styles.List}>
+      {listMovie.map((movie: any) => {
+        return <MovieTile props={movie} />;
+      })}
+    </div>
+  );
 };
 
 export default List;

@@ -1,5 +1,3 @@
-import React from "react";
-import axios from "axios";
 import styles from "./App.module.scss";
 import Title from "./components/Title/Title";
 import Navbar from "./components/Navbar/Navbar";
