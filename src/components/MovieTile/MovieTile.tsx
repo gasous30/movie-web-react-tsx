@@ -5,12 +5,14 @@ interface IMovieTile {
   props: any;
   wishlisthandler?: any;
   buttonname?: any;
+  detailedhandler?: any;
 }
 
 const MovieTile: FC<IMovieTile> = ({
   props,
   wishlisthandler,
   buttonname,
+  detailedhandler,
 }: IMovieTile) => {
   return (
     <div key={props.imdbID} className={styles.MovieTile}>
@@ -25,7 +27,9 @@ const MovieTile: FC<IMovieTile> = ({
         <a id={props.imdbID} onClick={wishlisthandler}>
           {buttonname}
         </a>
-        <a id={props.imdbID}>Detail Movie</a>
+        <a id={props.imdbID} onClick={detailedhandler}>
+          Detail Movie
+        </a>
       </div>
     </div>
   );

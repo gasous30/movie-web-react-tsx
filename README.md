@@ -12,6 +12,10 @@
 
 ![](images/wishlistdelete.png)
 
+## Melihat detail film
+
+![](images/detailedWIP.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -40,17 +40,19 @@ const Wishlist: FC<any> = ({ wishlist }: { wishlist: any }) => {
   };
 
   return (
-    <div className={styles.Wishlist} id="Wishlist">
+    <div>
       <Title title="Your Wishlist" />
-      {listMovie2.map((e: any) => {
-        return (
-          <MovieTile
-            props={e}
-            buttonname="Delete from wishlist"
-            wishlisthandler={deletewishlist}
-          />
-        );
-      })}
+      <div className={styles.Wishlist} id="Wishlist">
+        {listMovie2.map((e: any) => {
+          return (
+            <MovieTile
+              props={e}
+              buttonname="Delete from wishlist"
+              wishlisthandler={deletewishlist}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -16,7 +16,13 @@ let topRatedMoviesID = [
   "tt0120737",
 ];
 
-const List: FC<any> = ({ setWishlist }: { setWishlist: any }) => {
+const List: FC<any> = ({
+  setWishlist,
+  setIsOpen,
+}: {
+  setWishlist: any;
+  setIsOpen: any;
+}) => {
   const [isLoad, setIsLoad] = useState(false);
   const [listMovie, setListMovie] = useState<any>([]);
 
@@ -65,6 +71,7 @@ const List: FC<any> = ({ setWishlist }: { setWishlist: any }) => {
             props={movie}
             wishlisthandler={addWishlist}
             buttonname="Add to wishlist"
+            detailedhandler={setIsOpen}
           />
         );
       })}
