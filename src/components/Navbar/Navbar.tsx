@@ -21,6 +21,10 @@ const Navbar: FC = () => {
         </svg>
         <input type="text" placeholder="Search..." id="searchname" />
       </form>
+      <div className={styles.TextContainer}>
+        <a href="#List">Home</a>
+        <a href="#Wishlist">Wishlist</a>
+      </div>
     </div>
   );
 };

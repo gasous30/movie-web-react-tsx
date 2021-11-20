@@ -1,3 +1,17 @@
+# Screenshot Pages
+
+## Menampilkan 10 movie terbaik menurut imdb
+
+![](images/topmovies.png)
+
+## Menambahkan wishlist
+
+![](images/wishlist.png)
+
+## Menghapus wishlist
+
+![](images/wishlistdelete.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
